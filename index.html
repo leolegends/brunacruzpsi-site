@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6efe8" />
+  <title>Bruna Cruz — Psicóloga Online & Criadora de Conteúdo</title>
+  <meta name="description" content="Site profissional de Bruna Cruz, psicóloga online e criadora de conteúdo. Acesse terapia, palestras e workshops, avaliações, conteúdos e produtos.">
+  <meta property="og:title" content="Bruna Cruz — Psicóloga Online & Criadora de Conteúdo" />
+  <meta property="og:description" content="Uma página clara, elegante e profissional para centralizar terapia, palestras, avaliações e links importantes." />
+  <meta property="og:image" content="https://media.bio.site/sites/f8bad9bb-918b-4d02-96ef-a5ff309c6462/fQnTHS4nPkJTityAeRuqSK.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6efe8;
+      --bg-2: #fbf7f3;
+      --card: rgba(255,255,255,.72);
+      --card-strong: #ffffff;
+      --text: #241a23;
+      --muted: #6d5d69;
+      --line: rgba(74, 53, 66, .12);
+      --accent: #7a4d6d;
+      --accent-2: #a56a8a;
+      --accent-3: #d7b98b;
+      --shadow: 0 24px 60px rgba(43, 23, 34, .10);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(165,106,138,.14), transparent 38%),
+        radial-gradient(circle at top right, rgba(215,185,139,.18), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, #f8f3ee 45%, #fff 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.35), rgba(255,255,255,.35)),
+        radial-gradient(rgba(122,77,109,.04) 1px, transparent 1px);
+      background-size: auto, 22px 22px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,.16), transparent 28%);
+      opacity: .55;
+      z-index: 0;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(80, 52, 65, .05);
+      position: sticky;
+      top: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand__mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35), 0 10px 25px rgba(122,77,109,.24);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .brand__mark::after {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1.5px solid rgba(255,255,255,.92);
+      border-radius: 10px 10px 10px 4px;
+      transform: rotate(12deg);
+    }
+
+    .brand__text { min-width: 0; }
+    .brand__text strong {
+      display: block;
+      font-size: .98rem;
+      letter-spacing: -.02em;
+    }
+    .brand__text span {
+      display: block;
+      color: var(--muted);
+      font-size: .88rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .nav a {
+      font-size: .9rem;
+      color: var(--muted);
+      padding: 10px 13px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+    .nav a:hover { background: rgba(122,77,109,.08); color: var(--text); }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 26px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+
+    .hero__main, .hero__side, .panel {
+      border: 1px solid var(--line);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero__main {
+      border-radius: var(--radius-xl);
+      padding: clamp(24px, 4vw, 42px);
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero__main::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -100px auto;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(165,106,138,.22), rgba(165,106,138,0) 68%);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(122,77,109,.09);
+      color: var(--accent);
+      font-size: .84rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 0 4px rgba(122,77,109,.10);
+    }
+
+    h1, h2, h3, .display {
+      margin: 0;
+      letter-spacing: -.03em;
+    }
+
+    .display {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      line-height: .9;
+      font-weight: 600;
+      margin-bottom: 16px;
+      max-width: 9ch;
+    }
+
+    .lead {
+      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.72;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #5f3953 70%);
+      box-shadow: 0 16px 28px rgba(122,77,109,.22);
+    }
+    .btn--ghost {
+      background: rgba(255,255,255,.72);
+      border-color: rgba(122,77,109,.15);
+      color: var(--text);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    .meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.68);
+      border: 1px solid rgba(122,77,109,.12);
+    }
+
+    .hero__side {
+      border-radius: var(--radius-xl);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .profile {
+      background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(255,255,255,.66));
+      border: 1px solid rgba(122,77,109,.12);
+      border-radius: 28px;
+      padding: 18px;
+    }
+
+    .profile__photo {
+      width: 100%;
+      aspect-ratio: 1 / 1.08;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(122,77,109,.16), rgba(215,185,139,.22));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.55);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .profile__photo img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+
+    .profile__photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(34, 22, 29, .24) 100%);
+      pointer-events: none;
+    }
+
+    .profile h2 {
+      font-size: 1.35rem;
+      margin-bottom: 4px;
+    }
+    .profile p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .facts {
+      display: grid;
+      gap: 12px;
+    }
+
+    .fact {
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(122,77,109,.12);
+    }
+    .fact__label {
+      display: block;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .fact__value {
+      display: block;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .section {
+      margin-top: 26px;
+      padding: 0;
+    }
+
+    .section__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin: 0 0 14px;
+    }
+
+    .section__head h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: .96;
+    }
+
+    .section__head p {
+      margin: 0;
+      max-width: 52ch;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid--services {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid--links {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid--content {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.74);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 40px rgba(69, 46, 57, .06);
+      overflow: hidden;
+    }
+
+    .service {
+      padding: 22px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+    }
+    .service::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+    }
+    .service h3, .link-card h3, .box h3 {
+      font-size: 1.1rem;
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+    .service p, .link-card p, .box p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.68;
+      font-size: .96rem;
+    }
+    .tag {
+      width: fit-content;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(122,77,109,.09);
+      border-radius: 999px;
+      padding: 8px 11px;
+    }
+
+    .link-card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 220px;
+      position: relative;
+    }
+    .link-card .btn { width: 100%; }
+
+    .link-card__top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .link-card__icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(122,77,109,.14), rgba(215,185,139,.22));
+      border: 1px solid rgba(122,77,109,.12);
+      flex: 0 0 auto;
+      font-size: 1.1rem;
+    }
+
+    .link-card small {
+      color: var(--muted);
+      display: block;
+      line-height: 1.5;
+      font-size: .92rem;
+    }
+
+    .panel {
+      border-radius: var(--radius-xl);
+      padding: 22px;
+    }
+
+    .info-layout {
+      display: grid;
+      grid-template-columns: 1fr .94fr;
+      gap: 16px;
+    }
+
+    .box {
+      border-radius: 24px;
+      padding: 20px;
+      border: 1px solid rgba(122,77,109,.12);
+      background: rgba(255,255,255,.68);
+    }
+
+    .list {
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 13px 14px;
+      border: 1px solid rgba(122,77,109,.12);
+      border-radius: 18px;
+      background: rgba(255,255,255,.65);
+    }
+
+    .bullet {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      box-shadow: 0 0 0 5px rgba(122,77,109,.08);
+    }
+
+    .list strong { display: block; margin-bottom: 2px; }
+    .list span { color: var(--muted); line-height: 1.55; }
+
+    .cta-band {
+      margin-top: 24px;
+      padding: 26px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #6d415f, #9b6481 45%, #cfb18a 100%);
+      color: #fff;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(78, 47, 63, .22);
+    }
+
+    .cta-band::before,
+    .cta-band::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      filter: blur(10px);
+    }
+    .cta-band::before { width: 240px; height: 240px; right: -70px; top: -70px; }
+    .cta-band::after { width: 180px; height: 180px; left: -50px; bottom: -70px; }
+
+    .cta-band__inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band h2 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: .95;
+      margin-bottom: 10px;
+    }
+    .cta-band p {
+      margin: 0;
+      max-width: 65ch;
+      line-height: 1.7;
+      color: rgba(255,255,255,.88);
+    }
+
+    .footer {
+      padding: 26px 6px 8px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .92rem;
+      line-height: 1.7;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border: 1px solid rgba(122,77,109,.12);
+      border-radius: 999px;
+      background: rgba(255,255,255,.66);
+      color: var(--text);
+      font-size: .9rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(122,77,109,.18), transparent);
+      margin: 22px 0;
+    }
+
+    @media (max-width: 1080px) {
+      .hero, .info-layout, .grid--services, .grid--links, .grid--content {
+        grid-template-columns: 1fr 1fr;
+      }
+      .grid--services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid--links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(var(--max), calc(100% - 20px)); padding-top: 14px; }
+      .topbar {
+        border-radius: 24px;
+        position: static;
+        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav { justify-content: flex-start; }
+      .hero, .info-layout, .grid--services, .grid--links, .grid--content { grid-template-columns: 1fr; }
+      .hero__main, .hero__side, .panel, .cta-band { border-radius: 24px; }
+      .display { max-width: none; font-size: clamp(2.5rem, 16vw, 4.2rem); }
+      .section__head { flex-direction: column; align-items: flex-start; }
+      .section__head p { text-align: left; }
+      .cta-band__inner { align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar" aria-label="Navegação principal">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <strong>Bruna Cruz</strong>
+          <span>Psicóloga online • criadora de conteúdo</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#servicos">Serviços</a>
+        <a href="#links">Links</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="topo">
+      <article class="hero__main">
+        <div class="eyebrow">Psicologia • conteúdo • presença digital</div>
+        <h1 class="display">Bruna Cruz</h1>
+        <p class="lead">
+          Psicóloga online e criadora de conteúdo com uma presença digital organizada para facilitar o contato,
+          centralizar atendimentos e apresentar seus projetos de forma mais profissional, clara e acolhedora.
+        </p>
+        <div class="actions">
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer">Agendar por WhatsApp</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/brunacruzpsi" target="_blank" rel="noopener noreferrer">Ver Instagram</a>
+        </div>
+        <div class="meta" aria-label="Resumo rápido">
+          <span>Atendimento online</span>
+          <span>Palestras e workshops</span>
+          <span>Conteúdo e parcerias</span>
+        </div>
+      </article>
+
+      <aside class="hero__side">
+        <div class="profile">
+          <div class="profile__photo">
+            <img src="https://media.bio.site/sites/f8bad9bb-918b-4d02-96ef-a5ff309c6462/fQnTHS4nPkJTityAeRuqSK.jpg" alt="Bruna Cruz" />
+          </div>
+          <h2>Psicóloga Online &amp; Criadora de Conteúdo</h2>
+          <p>
+            Uma página mais objetiva para pessoas encontrarem rapidamente o caminho certo: contato, serviços, avaliações e recursos.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="fact">
+            <span class="fact__label">Contato principal</span>
+            <span class="fact__value">WhatsApp com mensagem pronta para agendamento.</span>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Prova social</span>
+            <span class="fact__value">Link direto para comentários e avaliações no Google.</span>
+          </div>
+          <div class="fact">
+            <span class="fact__label">Projetos e produtos</span>
+            <span class="fact__value">Palestras, workshops, conteúdo e a oferta “Terapia de Bolso”.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="section__head">
+        <h2>Áreas de atuação</h2>
+        <p>Organizei os links em blocos claros, preservando tudo o que existe hoje e deixando a navegação mais comercial e fácil de entender.</p>
+      </div>
+      <div class="grid grid--services">
+        <article class="card service">
+          <span class="tag">Atendimento</span>
+          <h3>Terapia, vamos juntas?</h3>
+          <p>Canal principal de agendamento via WhatsApp, com mensagem pronta para iniciar a conversa.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer">Agendar</a>
+        </article>
+        <article class="card service">
+          <span class="tag">Eventos</span>
+          <h3>Palestras e workshop</h3>
+          <p>Espaço dedicado a ações educativas e institucionais, com apresentação própria para conversão e credibilidade.</p>
+          <a class="btn btn--ghost" href="https://lp.bmbpalestras.com.br/" target="_blank" rel="noopener noreferrer">Abrir página</a>
+        </article>
+        <article class="card service">
+          <span class="tag">Conteúdo</span>
+          <h3>Marketing de conteúdo</h3>
+          <p>Fluxo voltado a parcerias, posicionamento digital e possível atendimento de marcas/projetos.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer">Falar agora</a>
+        </article>
+        <article class="card service">
+          <span class="tag">Produto</span>
+          <h3>Terapia de bolso</h3>
+          <p>Oferta digital em checkout próprio, ideal para destacar como recurso complementar da presença online.</p>
+          <a class="btn btn--ghost" href="https://app.monetizze.com.br/checkout/KZR440528" target="_blank" rel="noopener noreferrer">Ver produto</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="links">
+      <div class="section__head">
+        <h2>Links importantes</h2>
+        <p>Uma central única para acesso rápido. Cada bloco abaixo traz o contexto do link e elimina a sensação de “lista solta”.</p>
+      </div>
+      <div class="grid grid--links">
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">💬</div>
+            <div>
+              <h3>Terapia, Vamos juntas?</h3>
+              <small>Entrada direta para agendamento via WhatsApp.</small>
+            </div>
+          </div>
+          <p>Botão principal para conversão imediata, sem ruído visual.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer">Agendar sessão</a>
+        </article>
+
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">🎤</div>
+            <div>
+              <h3>Palestras e Workshop</h3>
+              <small>Página específica para apresentações e ações presenciais/online.</small>
+            </div>
+          </div>
+          <p>Ótimo espaço para explicar temas, formatos e contato comercial.</p>
+          <a class="btn btn--ghost" href="https://lp.bmbpalestras.com.br/" target="_blank" rel="noopener noreferrer">Abrir landing page</a>
+        </article>
+
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">⭐</div>
+            <div>
+              <h3>Comentários e Avaliações</h3>
+              <small>Prova social pública para transmitir confiança.</small>
+            </div>
+          </div>
+          <p>Essencial para credibilidade, especialmente em um site profissional de psicologia.</p>
+          <a class="btn btn--ghost" href="https://g.page/r/CYcI-AQGMt7WEAE/review" target="_blank" rel="noopener noreferrer">Ver avaliações</a>
+        </article>
+
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">📣</div>
+            <div>
+              <h3>Marketing de Conteúdo</h3>
+              <small>Canal comercial para projetos, conteúdo e possíveis parcerias.</small>
+            </div>
+          </div>
+          <p>Aqui o ideal é deixar claro o que a Bruna oferece, sem depender do Instagram.</p>
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer">Entrar em contato</a>
+        </article>
+
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">🧩</div>
+            <div>
+              <h3>BMB Gestão e Conformidade</h3>
+              <small>Projeto/site institucional relacionado ao ecossistema da marca.</small>
+            </div>
+          </div>
+          <p>Página externa que complementa a autoridade e amplia a presença digital.</p>
+          <a class="btn btn--ghost" href="https://bmbgestaoeconformidade.com.br" target="_blank" rel="noopener noreferrer">Abrir site</a>
+        </article>
+
+        <article class="card link-card">
+          <div class="link-card__top">
+            <div class="link-card__icon">📚</div>
+            <div>
+              <h3>Terapia de Bolso</h3>
+              <small>Produto/checkout digital disponível para compra.</small>
+            </div>
+          </div>
+          <p>Perfeito para destacar como recurso prático dentro de um site mais enxuto e elegante.</p>
+          <a class="btn btn--ghost" href="https://app.monetizze.com.br/checkout/KZR440528" target="_blank" rel="noopener noreferrer">Ver checkout</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="section__head">
+        <h2>Experiência mais objetiva</h2>
+        <p>Esta versão organiza o conteúdo em uma narrativa clara: quem é, o que faz, como entrar em contato e onde encontrar cada serviço.</p>
+      </div>
+      <div class="panel">
+        <div class="info-layout">
+          <div class="box">
+            <h3>O que a página resolve</h3>
+            <p>
+              Em vez de apenas listar botões, o site contextualiza cada link, cria hierarquia e conduz a pessoa ao próximo passo com menos atrito.
+            </p>
+            <ul class="list">
+              <li><span class="bullet" aria-hidden="true"></span><div><strong>Mais clareza</strong><span>Um destaque principal para terapia e um segundo eixo para palestras/projetos.</span></div></li>
+              <li><span class="bullet" aria-hidden="true"></span><div><strong>Mais confiança</strong><span>Visual sofisticado, prova social, organização e linguagem profissional.</span></div></li>
+              <li><span class="bullet" aria-hidden="true"></span><div><strong>Mais conversão</strong><span>CTAs visíveis, mensagens prontas e menos dispersão entre links.</span></div></li>
+            </ul>
+          </div>
+          <div class="box" id="contato">
+            <h3>Resumo dos canais</h3>
+            <div class="pill-row">
+              <a class="pill" href="https://www.instagram.com/brunacruzpsi" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="pill" href="https://wa.me/5511975673509" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+              <a class="pill" href="https://g.page/r/CYcI-AQGMt7WEAE/review" target="_blank" rel="noopener noreferrer">Avaliações</a>
+              <a class="pill" href="https://lp.bmbpalestras.com.br/" target="_blank" rel="noopener noreferrer">Palestras</a>
+              <a class="pill" href="https://app.monetizze.com.br/checkout/KZR440528" target="_blank" rel="noopener noreferrer">Terapia de bolso</a>
+            </div>
+            <div class="divider"></div>
+            <p>
+              Se o objetivo for prospecção, este layout já entrega uma proposta de valor mais forte e pode virar uma landing page de conversão com muita facilidade.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band" aria-label="Chamada para ação final">
+      <div class="cta-band__inner">
+        <div>
+          <h2>Pronto para uma presença digital mais profissional.</h2>
+          <p>
+            Uma identidade única, limpa e humana — com o foco certo em terapia, autoridade, conteúdo e caminhos claros para contato.
+          </p>
+        </div>
+        <div class="actions" style="margin:0;">
+          <a class="btn btn--primary" href="https://api.whatsapp.com/send?phone=5511975673509&text=Oi%20Bruna,%20gostaria%20de%20agendar%20contigo!" target="_blank" rel="noopener noreferrer" style="background:#fff;color:var(--accent);">Agendar</a>
+          <a class="btn btn--ghost" href="https://www.instagram.com/brunacruzpsi" target="_blank" rel="noopener noreferrer" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.22);">Instagram</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>Bruna Cruz — Psicóloga Online &amp; Criadora de Conteúdo</div>
+      <div>Conteúdo reorganizado a partir da página pública em bio.site, preservando links e melhorando a experiência.</div>
+    </footer>
+  </main>
+</body>
+</html>
